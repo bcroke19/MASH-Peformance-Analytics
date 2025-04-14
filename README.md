@@ -1,2 +1,2 @@
 # MASH-Peformance-Analytics
-Senior Project: DSC 4990
+This project was for a DSC 4990: Senior Project/Portfolio.
