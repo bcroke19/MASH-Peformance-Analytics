@@ -1,5 +1,11 @@
 # MASH-Peformance-Analytics
-This project was for a DSC 4990: Senior Project/Portfolio.
+This project was for my Senior Project/Portfolio class. The project consisted of working with MASH Performance, a sports facility in Savage, MN. In the past 10 years, athletes's performance and strenth testing had been tracked to measure progreess in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
+
+# Goals
+- Consolidate Excel sheets into one dataset for more efficient analysis
+- Create visualizations that provide clear insights into player progress
+- Conduct advanced analyses on current testing metrics
+- Learn new skills!
 
 # Step 1: Clean Data, Create Unique PlayerID, and Merge Datasets
 - Initial data was housed in three main Excel sheets: player metadata, performance history, and strength history
