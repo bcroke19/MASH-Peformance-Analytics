@@ -107,6 +107,79 @@ plt.show()
 
 The plot shows that athletes are most likely to have one test record. Less than 50 athletes have 6 testing records in their player history, and the number of athletes with more than 6 testing records declines as the number of records increases. There are many reasons why this trend may be happening, but two potential options could be that there are many new athletes becoming members at the sports facility who have just started training. Additionally, based on the Tests Per Year graph, tests seem to be have been recorded more often in recent years, so early data may not be recorded for some athletes.
 
+4. How many records exist for performance tests compared to strength tests?
+
+```
+## Member Test Type
+performance_tests = df[df['MemberTestType'] == 'Performance']
+print(len(performance_tests))
+
+strength_tests = df[df['MemberTestType'] == 'Strength']
+len(strength_tests)
+```
+Of the reecords, 2,197 were performance tests while 533 were strength tests. Due to the larger number of performance test records, I decided to focus analysis on performance tests.
+
+5. Within each test group type, multiple tests are chosen from depending on athlete health. For example, a change of direction test is administered to most athletes, but the specific drill to test change of direction can change depending on their health/sport: some may do a pro-agility sprint while others perform another test. After talking with the Director of Sports Performance, not all athletes undergo all test types on testing day, so I created a loop to help me understand which tests seem to be administered the most frequently and would have the smallest amount of missing data to work with.
+```
+# Loop through each column and get value counts
+for column in performance_tests.columns:
+    print(f"Value counts for column '{column}':")
+    print(performance_tests[column].value_counts())  # Get value counts for each column
+    print("\n")   Add a newline for readability 
+```
+Notes from this loop:
+* 2198 records of performance testing
+* 3 biggest categories of athletes: baseball (1292), multisport (377), softball (155)
+* Male (1810) vs Female (337)
+* Most common testing months: March, August, November, February
+* Foot Speed Type: SL Dynamic (973 records)
+* COD: Pro-Agility Sprint (1845 records)
+* Vertical Jump Type: CMJ (2097 records)
+* Horizontal Jump Type: Broad Jump (1958 records)
+* SL Broad Jump Type (91 records)
+* Localized Endurance Type: Pushups (198 records)
+* Conditioning Test: 1 Min Row Machine (203 records)
+* Custom Test Type: Vert M/S (651 records)
+
+6. To further understand the amout of missing data, I used Plotly to create interactive visualizations that shows the amount of data present for each column, allowing a user to hover over each bar (representing a column) to see the amount of records.
+```
+# Total rows
+total_rows = len(p_tests)
+
+# Count non-missing (data present) and percent present
+data_present = p_tests.notnull().sum().reset_index()
+data_present.columns = ['Column', 'Present Count']
+data_present['Percent Present'] = (data_present['Present Count'] / total_rows) * 100
+
+# Create bar chart
+fig = px.bar(data_present, x='Column', y='Percent Present',
+             title='Data Present by Column (% and Count)',
+             color='Percent Present',
+             color_continuous_scale='Blues',
+             hover_data={
+                 'Column': True,
+                 'Percent Present': ':.2f',
+                 'Present Count': True
+             })
+
+fig.update_layout(yaxis_title='% Present',
+                  hoverlabel=dict(bgcolor="white", font_size=12))
+
+fig.show()
+```
+
+
+
+7.  
+
+3. 
+
+
+
+- 
+- 
+
+
 ## Step 3: Creating Dashboard in PowerBI
 
 
