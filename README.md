@@ -279,12 +279,20 @@ t_stat, p_value = paired_t_test(COD_tests['Agility Time L'].values, COD_tests['A
 print(f"T-statistic: {t_stat}")
 print(f"P-value: {p_value}")
 ```
-T-statistic: 2.448037884673414
-P-value: 0.01446087949179792
-The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly longer than the right side (M = 4.70, SD = 0.25). This difference in sprint times was statistically significant, suggesting that players tend to be faster sprinting on the right side compared to their left. 
-7.  
+T-statistic: 2.44
+P-value: 0.014
+The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly longer than the right side (M = 4.70, SD = 0.25). This difference in sprint times was statistically significant, suggesting that players tend to be faster in changing direction on the right side compared to their left. 
 
-3. 
+## Step 3: PowerBI Dashboard
+I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functioinalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have ben used to create more complex visualizations.
+[MashReport_PowerBI.pdf](https://github.com/user-attachments/files/19837291/MashReport_PowerBI.pdf)
+
+## Step 4: Tableau Dashboard
+I had not used Tableau before this class, but I used this project as an opportunity to learn how to make a simple dashboard in Tableau, gaining a better understanding in the similarities and differences between PowerBI/Tableau.
+[Mash_Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19837303/Mash_Tableau_Dashboard.pdf)
+
+
+
 
 
 
