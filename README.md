@@ -21,27 +21,27 @@
 
 </details>
 
-# Overview
-## Background: MASH-Peformance
+## Overview
+### Background: MASH-Peformance
 This project was for my Senior Project/Portfolio class. The project consisted of working with MASH Performance, a sports facility in Savage, MN. In the past 10 years, athletes's performance and strenth testing had been tracked to measure progreess in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
 
-## Goals
+### Goals
 - Consolidate Excel sheets into one dataset for more efficient analysis
 - Create visualizations that provide clear insights into player progress
 - Conduct advanced analyses on current testing metrics
 - Learn new skills!
 
-# Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets
+## Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets
 - Initial data was housed in three main Excel sheets: player metadata, performance history, and strength history
 - In order to keep player data anonymous, a unique player ID was generated in Excel for each player within the Player sheet
 - Then the index/match function was used to match these player IDs to other player occurrences in both the performance and strenght history sheets based on player name
 - Data was cleaned (trimming spaces, correcting spelling errors in names) until all player IDs were matched to the rows in the performance and strength history sheets.
 
-# Part II: Exploratory Data Analysis
+## Part II: Exploratory Data Analysis
 
 Data analysis was conducted in Python using Visual Studio Code.
 
-## Importing Packages and Loading Data
+### Importing Packages and Loading Data
 Below are the packages used for this project:
 ```
 import pandas as pd
@@ -55,7 +55,7 @@ pio.renderers.default = "browser"
 import seaborn as sns
 ```
 
-## Number of Rows and Unique Members
+### Number of Rows and Unique Members
 How many rows are in the dataset? How many unique members make up these rows?
 ```
 num_rows = len(df) #number of rows in dataset
@@ -65,7 +65,7 @@ print(num_unique_members)
 ```
 There were 2,730 records of athletic tests within the dataset, which was a combination of both performance tests (speed and agility) as well as strength tests, and 801 unique member IDs.
 
-## Athletic Tests Per Year Since 2014
+### Athletic Tests Per Year Since 2014
 MASH has been open for a little over 10 years. How has the amount of recorded tests changed over time?
 ```
 # Convert 'Date' column to datetime
@@ -94,7 +94,7 @@ plt.show()
 
 The graph shows an increase in recorded tests for athletes, with the highest number of recorded tests occurring in the most recent year of testing 2024. This upward trend underscores the importance of analysis for player performance as the program grows.
 
-## Distribution of Tests Per Athlete
+### Distribution of Tests Per Athlete
 How many tests does each athlete have?
 ```
 # Assuming 'member_id' is the column identifying athletes in your dataset
@@ -136,7 +136,7 @@ plt.show()
 
 The plot shows that athletes are most likely to have one test record. Less than 50 athletes have 6 testing records in their player history, and the number of athletes with more than 6 testing records declines as the number of records increases. There are many reasons why this trend may be happening, but two potential options could be that there are many new athletes becoming members at the sports facility who have just started training. Additionally, based on the Tests Per Year graph, tests seem to be have been recorded more often in recent years, so early data may not be recorded for some athletes.
 
-## Number of Recorded Performance Tests Vs. Strength Tests
+### Number of Recorded Performance Tests Vs. Strength Tests
 How many records exist for performance tests compared to strength tests?
 
 ```
@@ -149,7 +149,7 @@ len(strength_tests)
 ```
 Of the reecords, 2,197 were performance tests while 533 were strength tests. Due to the larger number of performance test records, I decided to focus analysis on performance tests.
 
-## Evaluating Performance Test Metric Columns for Missing Data
+### Evaluating Performance Test Metric Columns for Missing Data
 Within each test group type, multiple tests are chosen from depending on athlete health. For example, a change of direction test is administered to most athletes, but the specific drill to test change of direction can change depending on their health/sport: some may do a pro-agility sprint while others perform another test. After talking with the Director of Sports Performance, not all athletes undergo all test types on testing day, so I created a loop to help me understand which tests seem to be administered the most frequently and would have the smallest amount of missing data to work with.
 ```
 # Loop through each column and get value counts
@@ -202,7 +202,7 @@ fig.show()
 
 The plot shows that most missing data occurs within some of the testing types (eg., Food Speed Type, SL Broad Jump Type). The Change of Direction test, which is tied to columns titled 'Agility Time R' and 'Agility Time L', had the least amout of missing data, so I chose to work with it to conduct some deeper analysis.
 
-# Part III: Statistical Testing and Resampling on the Pro-Agility Sprint
+## Part III: Statistical Testing and Resampling on the Pro-Agility Sprint
 How different are sprint time between athletes' left and right sides?
 ```
 p_tests = performance_tests
@@ -236,7 +236,7 @@ Name: CODPercentageDifference, dtype: float64
 
 Results: On average, athletes tended to have a sprint time on their left side that was 2% greater than the spring on their right side. Using boostrapping, are the distributions of these sprint times between left and right sides similar, and if so, how significant is 2% difference in sprint times?
 
-## Performing Bootstrapping
+### Performing Bootstrapping
 
 ```
 # Sample Data
@@ -254,7 +254,7 @@ left_means, left_ci = bootstrap_ci(COD_tests['Agility Time L'].values)
 right_means, right_ci = bootstrap_ci(COD_tests['Agility Time R'].values)
 
 ```
-## Plotting the Distributions
+### Plotting the Distributions
 ```
 plt.style.use('seaborn-whitegrid')
 plt.rcParams['axes.facecolor'] = '#F5F5F5'
@@ -280,7 +280,7 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/3e787ac9-d79a-43f5-8da9-8dbc76e6b903)
 
-## Testing for Distribution Differences using a Kolmogorov-Smirnov (KS) Test
+### Testing for Distribution Differences using a Kolmogorov-Smirnov (KS) Test
 
 Distributions appear normal and are similiar. To further ensure that the bootstapped distributions were similar and validate the two simulated distributions against the real data, I ran a Kolmogorov-Smirnov, or a KS, test.
 ```
@@ -295,7 +295,7 @@ KS Statistic: 0.02
 P-value: 0.78
 The KS statistic (p = .78) suggests that there is not a significant difference between the distributions.
 
-## Paired-Sample T-Test Comparing Left and Right Side Pro-Agility Times
+### Paired-Sample T-Test Comparing Left and Right Side Pro-Agility Times
 To analyze how different the average times were between the left and right side, I ran a paired-samples t-test between the left and right side times.
 ```
 # Sample Data
@@ -320,11 +320,11 @@ T-statistic: 2.44
 P-value: 0.014
 The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly longer than the right side (M = 4.70, SD = 0.25). This difference in sprint times was statistically significant, suggesting that players tend to be faster in changing direction on the right side compared to their left. 
 
-# Part IV: Visualization Tools
-## PowerBI Dashboard
+## Part IV: Visualization Tools
+### PowerBI Dashboard
 I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functioinalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have ben used to create more complex visualizations.
 [MashReport_PowerBI.pdf](https://github.com/user-attachments/files/19837291/MashReport_PowerBI.pdf)
 
-## Tableau Dashboard
+### Tableau Dashboard
 I had not used Tableau before this class, but I used this project as an opportunity to learn how to make a simple dashboard in Tableau, gaining a better understanding in the similarities and differences between PowerBI/Tableau.
 [Mash_Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19837303/Mash_Tableau_Dashboard.pdf)
