@@ -7,8 +7,19 @@ This project was for my Senior Project/Portfolio class. The project consisted of
 - Conduct advanced analyses on current testing metrics
 - Learn new skills!
 
-# Table of Contents
-- [Part I: Cleaning Data & Merging Datasets](#Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets)
+<details>
+<summary><strong>📌 Table of Contents</strong></summary>
+
+- [Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets](#part-i-clean-data-create-unique-playerids-and-merge-datasets)
+- [Part II: Exploratory Data Analysis](#part-ii-exploratory-data-analysis)
+  - [Descriptive Stats](#descriptive-stats)
+  - [Distributions](#distributions)
+- [Part III: Modeling and Evaluation](#part-iii-modeling-and-evaluation)
+  - [Model Selection](#model-selection)
+  - [Performance Metrics](#performance-metrics)
+
+</details>
+
 
 ## Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets
 - Initial data was housed in three main Excel sheets: player metadata, performance history, and strength history
