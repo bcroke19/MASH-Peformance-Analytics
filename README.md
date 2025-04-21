@@ -10,8 +10,11 @@
   - [Distribution of Tests Per Athlete](#distribution-of-tests-per-athlete)
   - [Number of Performance vs. Strength Tests](#number-of-recorded-performance-tests-vs.-strength-tests)
   - [Evaluating Performance Testsfor Missing Data](#evaluating-performance-test-metric-columns-for-missing-data)
-- [Part III: Statistical Testing & Resampling the Pro-Agility Sprint](#
-  - 
+- [Part III: Statistical Testing & Resampling on the Pro-Agility Sprint](#
+  - [Performing Boostrapping](#performing-bootstrapping)
+  - [Plotting the Distributions](#plotting-the-distributions)
+  - [Testing for Distribution Differences using a KS Test](#testing-for-distribution-differences-using-a-kolmogorov-smirnov-ks-test)
+  - [Paired-Sample T-Test](#paired-sample-t-test-comparing-left-and-right-side-pro-agility-times)
 - [Part IV: Visualization Tools](#part-iii-visualiztion-tools) 
   - [PowerBI Dashboard](#powerbi-dashboard)
   - [Tableau Dashboard](#tableau-dashboard)
@@ -169,7 +172,6 @@ Notes from this loop:
 * Conditioning Test: 1 Min Row Machine (203 records)
 * Custom Test Type: Vert M/S (651 records)
 
-## Using Plotly to Understand Present Data Per Column
 To further understand the amout of missing data, I used Plotly to create interactive visualizations that shows the amount of data present for each column, allowing a user to hover over each bar (representing a column) to see the amount of records.
 ```
 # Total rows
@@ -200,7 +202,7 @@ fig.show()
 
 The plot shows that most missing data occurs within some of the testing types (eg., Food Speed Type, SL Broad Jump Type). The Change of Direction test, which is tied to columns titled 'Agility Time R' and 'Agility Time L', had the least amout of missing data, so I chose to work with it to conduct some deeper analysis.
 
-# III: Bootstrapping: Understanding the Pro-Agility Sprint Test
+# Part III: Statistical Testing & Resampling on the Pro-Agility Sprint
 How different are sprint time between athletes' left and right sides?
 ```
 p_tests = performance_tests
@@ -234,6 +236,8 @@ Name: CODPercentageDifference, dtype: float64
 
 Results: On average, athletes tended to have a sprint time on their left side that was 2% greater than the spring on their right side. Using boostrapping, are the distributions of these sprint times between left and right sides similar, and if so, how significant is 2% difference in sprint times?
 
+## Performing Bootstrapping
+
 ```
 # Sample Data
 np.random.seed(42)  # For reproducibility
@@ -250,7 +254,7 @@ left_means, left_ci = bootstrap_ci(COD_tests['Agility Time L'].values)
 right_means, right_ci = bootstrap_ci(COD_tests['Agility Time R'].values)
 
 ```
-Plotting the distribution
+## Plotting the Distributions
 ```
 plt.style.use('seaborn-whitegrid')
 plt.rcParams['axes.facecolor'] = '#F5F5F5'
@@ -276,7 +280,7 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/3e787ac9-d79a-43f5-8da9-8dbc76e6b903)
 
-### Peforming Kolmogorov-Smirnov (KS) Test on the distributions
+## Testing for Distribution Differences using a Kolmogorov-Smirnov (KS) Test
 
 Distributions appear normal and are similiar. To further ensure that the bootstapped distributions were similar and validate the two simulated distributions against the real data, I ran a Kolmogorov-Smirnov, or a KS, test.
 ```
@@ -291,7 +295,7 @@ KS Statistic: 0.02
 P-value: 0.78
 The KS statistic (p = .78) suggests that there is not a significant difference between the distributions.
 
-### Paired-Sample T-Test Comparing Left and Right Side Times
+## Paired-Sample T-Test Comparing Left and Right Side Pro-Agility Times
 To analyze how different the average times were between the left and right side, I ran a paired-samples t-test between the left and right side times.
 ```
 # Sample Data
