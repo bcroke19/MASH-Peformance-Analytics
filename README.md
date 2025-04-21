@@ -9,9 +9,9 @@
   - [Athletic Tests Per Year](#athletic-tests-per-year-since-2014)
   - [Distribution of Tests Per Athlete](#distribution-of-tests-per-athlete)
   - [Number of Performance vs. Strength Tests](#number-of-recorded-performance-tests-vs.-strength-tests)
-  - [Evaluating Performance Testsfor Missing Data](#evaluating-performance-test-metric-columns-for-missing-data)
+  - [Evaluating Performance Tests for Missing Data](#evaluating-performance-test-metric-columns-for-missing-data)
 - [Part III: Statistical Testing and Resampling on the Pro-Agility Sprint](##part-iii-statistical-testing-and-resampling-on-the-pro-agility-sprint)
-  - [Performing Boostrapping](#performing-bootstrapping)
+  - [Performing Bootstrapping](#performing-bootstrapping)
   - [Plotting the Distributions](#plotting-the-distributions)
   - [Testing for Distribution Differences using a KS Test](#testing-for-distribution-differences-using-a-kolmogorov-smirnov-ks-test)
   - [Paired-Sample T-Test](#paired-sample-t-test-comparing-left-and-right-side-pro-agility-times)
@@ -23,7 +23,7 @@
 
 ## Overview
 ### Background: MASH Peformance
-This project was for my Senior Project/Portfolio class. The project consisted of working with MASH Performance, a sports facility in Savage, MN. In the past 10 years, athletes's performance and strenth testing had been tracked to measure progreess in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
+This project was for my Senior Project/Portfolio class. The project consisted of working with MASH Performance, a sports facility in Savage, MN. In the past 10 years, athletes' performance and strenth testing had been tracked to measure progreess in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
 
 ### Goals
 - Consolidate Excel sheets into one dataset for more efficient analysis
@@ -34,7 +34,7 @@ This project was for my Senior Project/Portfolio class. The project consisted of
 ## Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets
 - Initial data was housed in three main Excel sheets: player metadata, performance history, and strength history
 - In order to keep player data anonymous, a unique player ID was generated in Excel for each player within the Player sheet
-- Then the index/match function was used to match these player IDs to other player occurrences in both the performance and strenght history sheets based on player name
+- Then the index/match function was used to match these player IDs to other player occurrences in both the performance and strength history sheets based on player name
 - Data was cleaned (trimming spaces, correcting spelling errors in names) until all player IDs were matched to the rows in the performance and strength history sheets.
 
 ## Part II: Exploratory Data Analysis
@@ -137,7 +137,7 @@ plt.show()
 The plot shows that athletes are most likely to have one test record. Less than 50 athletes have 6 testing records in their player history, and the number of athletes with more than 6 testing records declines as the number of records increases. There are many reasons why this trend may be happening, but two potential options could be that there are many new athletes becoming members at the sports facility who have just started training. Additionally, based on the Tests Per Year graph, tests seem to be have been recorded more often in recent years, so early data may not be recorded for some athletes.
 
 ### Number of Recorded Performance Tests Vs. Strength Tests
-How many records exist for performance tests compared to strength tests?
+How many of the records exist for performance tests compared to strength tests?
 
 ```
 ## Member Test Type
@@ -147,7 +147,7 @@ print(len(performance_tests))
 strength_tests = df[df['MemberTestType'] == 'Strength']
 len(strength_tests)
 ```
-Of the reecords, 2,197 were performance tests while 533 were strength tests. Due to the larger number of performance test records, I decided to focus analysis on performance tests.
+Of the records, 2,197 were performance tests while 533 were strength tests. Due to the larger number of performance test records, I decided to focus analysis on performance tests.
 
 ### Evaluating Performance Test Metric Columns for Missing Data
 Within each test group type, multiple tests are chosen from depending on athlete health. For example, a change of direction test is administered to most athletes, but the specific drill to test change of direction can change depending on their health/sport: some may do a pro-agility sprint while others perform another test. After talking with the Director of Sports Performance, not all athletes undergo all test types on testing day, so I created a loop to help me understand which tests seem to be administered the most frequently and would have the smallest amount of missing data to work with.
@@ -172,7 +172,7 @@ Notes from this loop:
 * Conditioning Test: 1 Min Row Machine (203 records)
 * Custom Test Type: Vert M/S (651 records)
 
-To further understand the amout of missing data, I used Plotly to create interactive visualizations that shows the amount of data present for each column, allowing a user to hover over each bar (representing a column) to see the amount of records.
+To further understand the amount of missing data, I used Plotly to create interactive visualizations that shows the amount of data present for each column, allowing a user to hover over each bar (representing a column) to see the amount of records.
 ```
 # Total rows
 total_rows = len(p_tests)
@@ -200,7 +200,7 @@ fig.show()
 ```
 ![newplot](https://github.com/user-attachments/assets/c6d28c93-56e1-4bde-88d4-d85e8deb7994)
 
-The plot shows that most missing data occurs within some of the testing types (eg., Food Speed Type, SL Broad Jump Type). The Change of Direction test, which is tied to columns titled 'Agility Time R' and 'Agility Time L', had the least amout of missing data, so I chose to work with it to conduct some deeper analysis.
+The plot shows that most missing data occurs within some of the testing types (eg., Foot Speed Type, SL Broad Jump Type). The Change of Direction test, which is tied to columns titled 'Agility Time R' and 'Agility Time L', had the least amount of missing data, so I chose to work with it to conduct some deeper analysis.
 
 ## Part III: Statistical Testing and Resampling on the Pro-Agility Sprint
 How different are sprint time between athletes' left and right sides?
