@@ -2,7 +2,7 @@
 <summary><strong>📌 Table of Contents</strong></summary>
 
 - [Overview](#Overview)
-- [Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets](#part-i-clean-data-create-unique-playerids-and-merge-datasets)
+- [Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets](##part-i-clean-data-create-unique-playerids-and-merge-datasets)
 - [Part II: Exploratory Data Analysis](#part-ii-exploratory-data-analysis)
   - [Importing Packages and Loading Data](#importing-packages-and-loading-data)
   - [Count of Rows and Unique IDs](#number-of-rows-and-unique-members)
