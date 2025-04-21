@@ -1,16 +1,16 @@
 <details>
-<summary><strong>📌 Table of Contents</strong></summary>
+<summary><strong> ##📌 Table of Contents</strong></summary>
 
 - [Overview](#Overview)
 - [Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets](##part-i-clean-data-create-unique-playerids-and-merge-datasets)
-- [Part II: Exploratory Data Analysis](#part-ii-exploratory-data-analysis)
+- [Part II: Exploratory Data Analysis](##part-ii-exploratory-data-analysis)
   - [Importing Packages and Loading Data](#importing-packages-and-loading-data)
   - [Count of Rows and Unique IDs](#number-of-rows-and-unique-members)
   - [Athletic Tests Per Year](#athletic-tests-per-year-since-2014)
   - [Distribution of Tests Per Athlete](#distribution-of-tests-per-athlete)
   - [Number of Performance vs. Strength Tests](#number-of-recorded-performance-tests-vs.-strength-tests)
   - [Evaluating Performance Testsfor Missing Data](#evaluating-performance-test-metric-columns-for-missing-data)
-- [Part III: Statistical Testing and Resampling on the Pro-Agility Sprint](#part-iii-statistical-testing-and-resampling-on-the-pro-agility-sprint)
+- [Part III: Statistical Testing and Resampling on the Pro-Agility Sprint](##part-iii-statistical-testing-and-resampling-on-the-pro-agility-sprint)
   - [Performing Boostrapping](#performing-bootstrapping)
   - [Plotting the Distributions](#plotting-the-distributions)
   - [Testing for Distribution Differences using a KS Test](#testing-for-distribution-differences-using-a-kolmogorov-smirnov-ks-test)
