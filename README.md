@@ -10,7 +10,7 @@
   - [Distribution of Tests Per Athlete](#distribution-of-tests-per-athlete)
   - [Number of Performance vs. Strength Tests](#number-of-recorded-performance-tests-vs.-strength-tests)
   - [Evaluating Performance Testsfor Missing Data](#evaluating-performance-test-metric-columns-for-missing-data)
-- [Part III: Statistical Testing and Resampling on the Pro-Agility Sprint](#part-iii:-statistical-testing-and-resampling-on-the-pro-agility-sprint)
+- [Part III: Statistical Testing and Resampling on the Pro-Agility Sprint](#part-iii-statistical-testing-and-resampling-on-the-pro-agility-sprint)
   - [Performing Boostrapping](#performing-bootstrapping)
   - [Plotting the Distributions](#plotting-the-distributions)
   - [Testing for Distribution Differences using a KS Test](#testing-for-distribution-differences-using-a-kolmogorov-smirnov-ks-test)
