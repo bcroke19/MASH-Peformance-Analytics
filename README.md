@@ -7,13 +7,16 @@ This project was for my Senior Project/Portfolio class. The project consisted of
 - Conduct advanced analyses on current testing metrics
 - Learn new skills!
 
-## Step 1: Clean Data, Create Unique PlayerIDs, and Merge Datasets
+# Table of Contents
+- [Part I: Cleaning Data & Merging Datasets](#Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets)
+
+## Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets
 - Initial data was housed in three main Excel sheets: player metadata, performance history, and strength history
 - In order to keep player data anonymous, a unique player ID was generated in Excel for each player within the Player sheet
 - Then the index/match function was used to match these player IDs to other player occurrences in both the performance and strenght history sheets based on player name
 - Data was cleaned (trimming spaces, correcting spelling errors in names) until all player IDs were matched to the rows in the performance and strength history sheets.
 
-## Step 2: Analysis in Python Using Visual Studio Code
+## Part II: Analysis in Python Using Visual Studio Code
 1. Import Packages.
 ```
 import pandas as pd
@@ -284,10 +287,11 @@ T-statistic: 2.44
 P-value: 0.014
 The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly longer than the right side (M = 4.70, SD = 0.25). This difference in sprint times was statistically significant, suggesting that players tend to be faster in changing direction on the right side compared to their left. 
 
-## Step 3: PowerBI Dashboard
+## Part IV: Visualization
+### PowerBI Dashboard
 I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functioinalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have ben used to create more complex visualizations.
 [MashReport_PowerBI.pdf](https://github.com/user-attachments/files/19837291/MashReport_PowerBI.pdf)
 
-## Step 4: Tableau Dashboard
+### Tableau Dashboard
 I had not used Tableau before this class, but I used this project as an opportunity to learn how to make a simple dashboard in Tableau, gaining a better understanding in the similarities and differences between PowerBI/Tableau.
 [Mash_Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19837303/Mash_Tableau_Dashboard.pdf)
