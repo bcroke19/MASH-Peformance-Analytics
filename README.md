@@ -80,7 +80,7 @@ test_distribution = athlete_test_counts['Test Count'].value_counts().sort_index(
 # Rename columns to 'Number of Tests' and 'Number of Athletes'
 test_distribution.columns = ['Number of Tests', 'Number of Athletes']
 ```
-Plot this distribution using seaborn.
+Plot this distribution using the seaborn package.
 ```
 # Assuming 'member_id' is the column identifying athletes in your dataset
 athlete_test_counts = df['MemberID'].value_counts()
@@ -247,7 +247,7 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/3e787ac9-d79a-43f5-8da9-8dbc76e6b903)
 
-Distributions appear normal and are similiar. To further ensure that bootstapped distributinos were similar, I ran a KS test.
+Distributions appear normal and are similiar. To further ensure that the bootstapped distributions were similar and validate the two simulated distributions against the real data, I ran a Kolmogorov-Smirnov, or a KS, test.
 ```
 # Perform KS Test
 ks_stat, p_value = ks_2samp(COD_tests['Agility Time L'].values, COD_tests['Agility Time R'].values)
