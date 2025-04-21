@@ -290,17 +290,3 @@ I created a PowerBI dashboard with a few basic visualizations in the PowerBI bro
 ## Step 4: Tableau Dashboard
 I had not used Tableau before this class, but I used this project as an opportunity to learn how to make a simple dashboard in Tableau, gaining a better understanding in the similarities and differences between PowerBI/Tableau.
 [Mash_Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19837303/Mash_Tableau_Dashboard.pdf)
-
-
-
-
-
-
-- 
-- 
-
-
-## Step 3: Creating Dashboard in PowerBI
-
-
-## Step 4: Creating Dashboard in Tableau
