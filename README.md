@@ -256,8 +256,8 @@ ks_stat, p_value = ks_2samp(COD_tests['Agility Time L'].values, COD_tests['Agili
 print(f"KS Statistic: {ks_stat}")
 print(f"P-value: {p_value}")
 ```
-KS Statistic: 0.02218430034129693
-P-value: 0.7801152454673246
+KS Statistic: 0.02
+P-value: 0.78
 The KS statistic (p = .78) suggests that there is not a significant difference between the distributions.
 
 To analyze how different the average times were between the left and right side, I ran a paired-samples t-test between the left and right side times.
