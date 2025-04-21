@@ -202,7 +202,7 @@ fig.show()
 
 The plot shows that most missing data occurs within some of the testing types (eg., Food Speed Type, SL Broad Jump Type). The Change of Direction test, which is tied to columns titled 'Agility Time R' and 'Agility Time L', had the least amout of missing data, so I chose to work with it to conduct some deeper analysis.
 
-# Part III: Statistical Testing & Resampling on the Pro-Agility Sprint
+# Part III: Statistical Testing and Resampling on the Pro-Agility Sprint
 How different are sprint time between athletes' left and right sides?
 ```
 p_tests = performance_tests
