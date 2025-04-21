@@ -4,16 +4,22 @@
 - [Overview](#Overview)
 - [Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets](#part-i-clean-data-create-unique-playerids-and-merge-datasets)
 - [Part II: Exploratory Data Analysis](#part-ii-exploratory-data-analysis)
-  - [Descriptive Stats](#descriptive-stats)
-  - [Distributions](#distributions)
-- [Part III: Visualization Tools](#part-iii-visualiztion-tools) 
+  - [Importing Packages and Loading Data](#importing-packages-and-loading-data)
+  - [Count of Rows and Unique IDs](#number-of-rows-and-unique-members)
+  - [Athletic Tests Per Year](#athletic-tests-per-year-since-2014)
+  - [Distribution of Tests Per Athlete](#distribution-of-tests-per-athlete)
+  - [Number of Performance vs. Strength Tests](#number-of-recorded-performance-tests-vs.-strength-tests)
+  - [Evaluating Performance Testsfor Missing Data](#evaluating-performance-test-metric-columns-for-missing-data)
+- [Part III: Statistical Testing & Resampling the Pro-Agility Sprint](#
+  - 
+- [Part IV: Visualization Tools](#part-iii-visualiztion-tools) 
   - [PowerBI Dashboard](#powerbi-dashboard)
   - [Tableau Dashboard](#tableau-dashboard)
 
 </details>
 
 # Overview
-## MASH-Peformance-Analytics
+## Background: MASH-Peformance
 This project was for my Senior Project/Portfolio class. The project consisted of working with MASH Performance, a sports facility in Savage, MN. In the past 10 years, athletes's performance and strenth testing had been tracked to measure progreess in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
 
 ## Goals
@@ -28,8 +34,12 @@ This project was for my Senior Project/Portfolio class. The project consisted of
 - Then the index/match function was used to match these player IDs to other player occurrences in both the performance and strenght history sheets based on player name
 - Data was cleaned (trimming spaces, correcting spelling errors in names) until all player IDs were matched to the rows in the performance and strength history sheets.
 
-# Part II: Analysis in Python Using Visual Studio Code
-1. Import Packages.
+# Part II: Exploratory Data Analysis
+
+Data analysis was conducted in Python using Visual Studio Code.
+
+## Importing Packages and Loading Data
+Below are the packages used for this project:
 ```
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -41,10 +51,9 @@ import plotly.io as pio
 pio.renderers.default = "browser"  
 import seaborn as sns
 ```
-2. Read in Data from CSV.
 
-### Basic Analysis
-1. How many rows are in the dataset? How many unique members make up these rows?
+## Number of Rows and Unique Members
+How many rows are in the dataset? How many unique members make up these rows?
 ```
 num_rows = len(df) #number of rows in dataset
 print(num_rows)
@@ -53,7 +62,8 @@ print(num_unique_members)
 ```
 There were 2,730 records of athletic tests within the dataset, which was a combination of both performance tests (speed and agility) as well as strength tests, and 801 unique member IDs.
 
-2. MASH has been open for a little over 10 years. How has the amount of recorded tests changed over time?
+## Athletic Tests Per Year Since 2014
+MASH has been open for a little over 10 years. How has the amount of recorded tests changed over time?
 ```
 # Convert 'Date' column to datetime
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
@@ -81,7 +91,8 @@ plt.show()
 
 The graph shows an increase in recorded tests for athletes, with the highest number of recorded tests occurring in the most recent year of testing 2024. This upward trend underscores the importance of analysis for player performance as the program grows.
 
-3. How many tests does each athlete have?
+## Distribution of Tests Per Athlete
+How many tests does each athlete have?
 ```
 # Assuming 'member_id' is the column identifying athletes in your dataset
 athlete_test_counts = df['MemberID'].value_counts().reset_index()
@@ -122,7 +133,8 @@ plt.show()
 
 The plot shows that athletes are most likely to have one test record. Less than 50 athletes have 6 testing records in their player history, and the number of athletes with more than 6 testing records declines as the number of records increases. There are many reasons why this trend may be happening, but two potential options could be that there are many new athletes becoming members at the sports facility who have just started training. Additionally, based on the Tests Per Year graph, tests seem to be have been recorded more often in recent years, so early data may not be recorded for some athletes.
 
-4. How many records exist for performance tests compared to strength tests?
+## Number of Recorded Performance Tests Vs. Strength Tests
+How many records exist for performance tests compared to strength tests?
 
 ```
 ## Member Test Type
@@ -134,7 +146,8 @@ len(strength_tests)
 ```
 Of the reecords, 2,197 were performance tests while 533 were strength tests. Due to the larger number of performance test records, I decided to focus analysis on performance tests.
 
-5. Within each test group type, multiple tests are chosen from depending on athlete health. For example, a change of direction test is administered to most athletes, but the specific drill to test change of direction can change depending on their health/sport: some may do a pro-agility sprint while others perform another test. After talking with the Director of Sports Performance, not all athletes undergo all test types on testing day, so I created a loop to help me understand which tests seem to be administered the most frequently and would have the smallest amount of missing data to work with.
+## Evaluating Performance Test Metric Columns for Missing Data
+Within each test group type, multiple tests are chosen from depending on athlete health. For example, a change of direction test is administered to most athletes, but the specific drill to test change of direction can change depending on their health/sport: some may do a pro-agility sprint while others perform another test. After talking with the Director of Sports Performance, not all athletes undergo all test types on testing day, so I created a loop to help me understand which tests seem to be administered the most frequently and would have the smallest amount of missing data to work with.
 ```
 # Loop through each column and get value counts
 for column in performance_tests.columns:
@@ -156,7 +169,8 @@ Notes from this loop:
 * Conditioning Test: 1 Min Row Machine (203 records)
 * Custom Test Type: Vert M/S (651 records)
 
-6. To further understand the amout of missing data, I used Plotly to create interactive visualizations that shows the amount of data present for each column, allowing a user to hover over each bar (representing a column) to see the amount of records.
+## Using Plotly to Understand Present Data Per Column
+To further understand the amout of missing data, I used Plotly to create interactive visualizations that shows the amount of data present for each column, allowing a user to hover over each bar (representing a column) to see the amount of records.
 ```
 # Total rows
 total_rows = len(p_tests)
@@ -186,7 +200,7 @@ fig.show()
 
 The plot shows that most missing data occurs within some of the testing types (eg., Food Speed Type, SL Broad Jump Type). The Change of Direction test, which is tied to columns titled 'Agility Time R' and 'Agility Time L', had the least amout of missing data, so I chose to work with it to conduct some deeper analysis.
 
-## Bootstrapping: Understanding the Pro-Agility Sprint Test
+# III: Bootstrapping: Understanding the Pro-Agility Sprint Test
 How different are sprint time between athletes' left and right sides?
 ```
 p_tests = performance_tests
@@ -262,6 +276,8 @@ plt.show()
 ```
 ![image](https://github.com/user-attachments/assets/3e787ac9-d79a-43f5-8da9-8dbc76e6b903)
 
+### Peforming Kolmogorov-Smirnov (KS) Test on the distributions
+
 Distributions appear normal and are similiar. To further ensure that the bootstapped distributions were similar and validate the two simulated distributions against the real data, I ran a Kolmogorov-Smirnov, or a KS, test.
 ```
 # Perform KS Test
@@ -275,6 +291,7 @@ KS Statistic: 0.02
 P-value: 0.78
 The KS statistic (p = .78) suggests that there is not a significant difference between the distributions.
 
+### Paired-Sample T-Test Comparing Left and Right Side Times
 To analyze how different the average times were between the left and right side, I ran a paired-samples t-test between the left and right side times.
 ```
 # Sample Data
@@ -299,7 +316,7 @@ T-statistic: 2.44
 P-value: 0.014
 The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly longer than the right side (M = 4.70, SD = 0.25). This difference in sprint times was statistically significant, suggesting that players tend to be faster in changing direction on the right side compared to their left. 
 
-# Part III: Visualization Tools
+# Part IV: Visualization Tools
 ## PowerBI Dashboard
 I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functioinalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have ben used to create more complex visualizations.
 [MashReport_PowerBI.pdf](https://github.com/user-attachments/files/19837291/MashReport_PowerBI.pdf)
