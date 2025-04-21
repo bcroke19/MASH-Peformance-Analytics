@@ -191,7 +191,7 @@ COD_tests['CODPercentageDifference'] = (COD_tests['CODTimeDifference'] / COD_tes
 print(COD_tests['CODPercentageDifference'].describe())
 
 ```
-
+```
 count    1758.000000
 mean        2.072706
 std         3.139420
@@ -201,6 +201,7 @@ min         0.000000
 75%         2.577882
 max        83.889695
 Name: CODPercentageDifference, dtype: float64
+```
 
 Results: On average, athletes tended to have a sprint time on their left side that was 2% greater than the spring on their right side. Using boostrapping, are the distributions of these sprint times between left and right sides similar, and if so, how significant is 2% difference in sprint times?
 
