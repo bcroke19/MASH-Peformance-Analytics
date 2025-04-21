@@ -1,5 +1,5 @@
 <details>
-<summary><strong> ##📌 Table of Contents</strong></summary>
+<summary><strong> 📌 Table of Contents</strong></summary>
 
 - [Overview](#Overview)
 - [Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets](##part-i-clean-data-create-unique-playerids-and-merge-datasets)
