@@ -234,7 +234,7 @@ max        83.889695
 Name: CODPercentageDifference, dtype: float64
 ```
 
-Results: On average, athletes tended to have a sprint time on their left side that was 2% greater than the spring on their right side. Using boostrapping, are the distributions of these sprint times between left and right sides similar, and if so, how significant is 2% difference in sprint times?
+Results: On average, athletes tended to have a sprint time on their left side that was 2% greater than the spring on their right side. Using bootstrapping, are the distributions of these sprint times between left and right sides similar, and if so, how significant is 2% difference in sprint times?
 
 ### Performing Bootstrapping
 
@@ -322,7 +322,7 @@ The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly long
 
 ## Part IV: Visualization Tools
 ### PowerBI Dashboard
-I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functioinalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have ben used to create more complex visualizations.
+I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functionalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have been used to create more complex visualizations.
 [MashReport_PowerBI.pdf](https://github.com/user-attachments/files/19837291/MashReport_PowerBI.pdf)
 
 ### Tableau Dashboard
