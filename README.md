@@ -328,5 +328,6 @@ I created a PowerBI dashboard with a few basic visualizations in the PowerBI bro
 
 ### Tableau Dashboard
 I had not used Tableau before this class, but I used this project as an opportunity to learn how to make a simple dashboard in Tableau, gaining a better understanding in the similarities and differences between PowerBI/Tableau.
-[Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19875339/DSC4990_Tableau_Dashboard.pdf)
+[Sports_Peformance_Tableau_Dashboard copy.pdf](https://github.com/user-attachments/files/19875410/Sports_Peformance_Tableau_Dashboard.copy.pdf)
+
 
