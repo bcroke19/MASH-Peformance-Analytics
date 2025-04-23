@@ -23,7 +23,7 @@
 
 ## Overview
 ### Background
-This project was for my Senior Project/Portfolio class. The project consisted of working with data from a sports facility. In the past 10 years, athletes' performance and strength testing had been tracked to measure progreess in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
+This project was for my Senior Project/Portfolio class. The project consisted of working with data from a sports facility. In the past 10 years, athletes' performance and strength testing had been tracked to measure progress in player development. Much of the data had not been cleaned and analyzed for overall trends in player development.
 
 ### Goals
 - Consolidate Excel sheets into one dataset for more efficient analysis
