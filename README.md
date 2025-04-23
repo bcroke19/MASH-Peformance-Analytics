@@ -323,8 +323,8 @@ The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly long
 ## Part IV: Visualization Tools
 ### PowerBI Dashboard
 I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functionalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have been used to create more complex visualizations.
-[MashReport_PowerBI.pdf](https://github.com/user-attachments/files/19837291/MashReport_PowerBI.pdf)
+[Report_PowerBI.pdf](https://github.com/user-attachments/files/19837291/Report_PowerBI.pdf)
 
 ### Tableau Dashboard
 I had not used Tableau before this class, but I used this project as an opportunity to learn how to make a simple dashboard in Tableau, gaining a better understanding in the similarities and differences between PowerBI/Tableau.
-[Mash_Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19837303/Mash_Tableau_Dashboard.pdf)
+[Tableau_Dashboard.pdf](https://github.com/user-attachments/files/19837303/Tableau_Dashboard.pdf)
