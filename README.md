@@ -34,8 +34,8 @@ This project was for my Senior Project/Portfolio class. The project consisted of
 ## Part I: Clean Data, Create Unique PlayerIDs, and Merge Datasets
 - Initial data was housed in three main Excel sheets: player metadata, performance history, and strength history
 - In order to keep player data anonymous, a unique player ID was generated in Excel for each player within the Player sheet
-- Then the index/match function was used to match these player IDs to other player occurrences in both the performance and strength history sheets based on player name
-- Data was cleaned (trimming spaces, correcting spelling errors in names) until all player IDs were matched to the rows in the performance and strength history sheets.
+- A combination of the index and match functions in Excel were used to match these player IDs to other player occurrences in both the performance and strength history sheets based on player name
+- Data was cleaned (trimming spaces, correcting spelling errors in names) until most player IDs were matched to the rows in the performance and strength history sheets.
 
 ## Part II: Exploratory Data Analysis
 
