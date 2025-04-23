@@ -323,7 +323,7 @@ The average sprint time on the left side (M = 4.82, SD = 0.26) was slightly long
 ## Part IV: Visualization Tools
 ### PowerBI Dashboard
 I created a PowerBI dashboard with a few basic visualizations in the PowerBI browser version. In contrast to the desktop version, PowerQuery and other functionalities are quite limited. This led to a few challenges, such as struggling to change data types after loading data in. For example, many columns were loaded in as strings rather than integers, which meant that the only aggregate function that could be applied to much of the data was the count function, whereas if columns were integers or decimals data types, aggregate functions such as 'sum' and 'average' could have been used to create more complex visualizations.
-[Sports_Performance_PowerBI_Dashboard.pdf](https://github.com/user-attachments/files/19875372/Sports_Perfomance_Report.pdf)
+[PowerBI_Dashboard.pdf](https://github.com/user-attachments/files/19875372/Sports_Perfomance_Report.pdf)
 
 
 ### Tableau Dashboard
