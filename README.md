@@ -66,7 +66,7 @@ print(num_unique_members)
 There were 2,730 records of athletic tests within the dataset, which was a combination of both performance tests (speed and agility) as well as strength tests, and 801 unique member IDs.
 
 ### Athletic Tests Per Year Since 2014
-MASH has been open for a little over 10 years. How has the amount of recorded tests changed over time?
+This sports facility has been open for a little over 10 years. How has the amount of recorded tests changed over time?
 ```
 # Convert 'Date' column to datetime
 df['Date'] = pd.to_datetime(df['Date'], errors='coerce')
